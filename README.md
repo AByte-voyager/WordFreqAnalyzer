@@ -17,10 +17,18 @@ This project is a **Word Frequency Analyzer** that processes text files to compu
   - `word_freq.py`         : Python script to query and display results
 
 ## Requirements
-- **C Compiler** (e.g., `gcc`)
-- **SQLite3** for SQL database handling
-- **Python3** with SQLite support
+- **C Compiler** (e.g., `gcc`) for compiling the C program.
+- **SQLite3** for SQL database handling and storing word frequencies.
+- **Python3** to execute the Python script with SQLite support to query and display the stored results.
 
 ## Usage
-The Bash script automates the entire process. To run the script, use:
-./freq_count <file1> <file2> ... <fileN>
+
+The `freq_count` Bash script automates the entire process of compiling the C program, running it to analyze word frequencies, and interacting with the SQL database.
+
+### To use the script:
+
+ **Execute the Bash script** with one or more text files as arguments:
+
+   ```bash
+   ./freq_count <file1> <file2> ... <fileN>
+
