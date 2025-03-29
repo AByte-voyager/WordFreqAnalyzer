@@ -10,12 +10,12 @@ This project is a **Word Frequency Analyzer** that processes text files to compu
 - **Python script** to query the SQL database and display word frequencies in a readable format.
 
 ## Project Structure
-word_freq_analyzer/
-├── word_freq.c          # C program to analyze word frequencies
-├── freq_count           # Bash script to automate C program execution
-├── freq_table.sql       # SQL script to create the word frequency table
-├── word_freq.sql        # SQL script to insert data into the table
-├── word_freq.py         # Python script to query and display results
+- `word_freq_analyzer/`
+  - `word_freq.c`          : C program to analyze word frequencies
+  - `freq_count`           : Bash script to automate C program execution
+  - `freq_table.sql`       : SQL script to create the word frequency table
+  - `word_freq.sql`        : SQL script to insert data into the table
+  - `word_freq.py`         : Python script to query and display results
 
 ## Requirements
 - **C Compiler** (e.g., `gcc`)
