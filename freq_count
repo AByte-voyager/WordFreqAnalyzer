@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+if [[ $# -lt 1 ]]; then
+    echo "Usage: ${0} textFile" >&2
+    exit 1
+fi
+
+sqlite3 word_freq.db < freq_table.sql
+
+gcc -Wall -Wvla -Werror word_freq.c -o word_freq
+if [[ $? -ne 0 ]]; then
+    echo "Compilation failed!" >&2
+    exit 1
+fi
+
+for input_file in "$@"; do
+    if [ -f "$input_file" ]; then
+        echo "============================="
+        echo "Processing file: $input_file"
+        echo "============================="
+        ./word_freq "$input_file"
+        echo "" 
+    else
+        echo "Error: File '$input_file' not found!" >&2
+    fi
+done
+
+sqlite3 word_freq.db < word_freq.sql
+
+echo "============================="
+echo "Querying the database for word frequencies:"
+echo "============================="
+python3 word_freq.py
+
+rm -f word_freq word_freq.sql word_freq.db
